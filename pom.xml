@@ -65,6 +65,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Swagger/OpenAPI 文档 -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
 
         <!-- SLF4J 日志-->
         <dependency>

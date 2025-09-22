@@ -1,26 +1,34 @@
 package org.example.spaces.config;
 
 
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.annotation.Validated;
+
 /*
 * DigitalOcean Spaces配置类
 * 存储所有配置信息
 * */
+@Data
+@Validated
+@Configuration
+@ConfigurationProperties(prefix = "digitalocean.spaces")
 public class SpacesConfig {
-    // Spaces的访问密钥
-    public static final String ACCESS_KEY = "";
-    // Spaces的秘密密钥
-    public static final String SECRET_KEY = "";
+   @NotBlank(message = "Access key is required")
+    private String accessKey;
 
-    // Spaces的区域
-    public static final String REGION = "";
+   @NotBlank(message = "Secret key is required")
+    private String secretKey;
 
-    // Spaces的存储桶标签
-    public static final String BUCKET_NAME = "";
+   @NotBlank(message = "Region is required")
+    private String region;
 
-    // Spaces的端点URL模板
-    public static final String ENDPOINT_URL = "";
+   @NotBlank(message = "Bucket name is required")
+    private String bucketName;
 
-    public static String getEndpointUrl() {
-        return String.format(ENDPOINT_URL,REGION);
-    }
+   @NotBlank(message = "Endpoint Url is required")
+    private String endpointUrl;
 }

@@ -1,0 +1,43 @@
+# Spring 应用配置
+spring:
+  application:
+    name: digitalocean.spaces-service
+
+  # 文件上传限制
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+
+# 服务器配置
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# DigitalOcean Spaces 配置
+# TODO: 待加入参数
+digitalocean:
+  spaces:
+    access-key: ${DO_SPACES_ACCESS_KEY:}
+    secret-key: ${DO_SPACES_SECRET_KEY:}
+    region: ${DO_SPACES_REGION}
+    bucket-name: ${DO_SPACES_BUCKET:}
+    endpoint-url:
+
+# 日志配置
+logging:
+  level:
+    org.example.spaces: DEBUG
+    software.amazon.awssdk: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} -%msg%n"
+
+# OpenAPI/Swagger 配置
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
