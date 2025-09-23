@@ -20,11 +20,11 @@ server:
 # TODO: 待加入参数
 digitalocean:
   spaces:
-    access-key: ${DO_SPACES_ACCESS_KEY:}
-    secret-key: ${DO_SPACES_SECRET_KEY:}
+    access-key: ${DO_SPACES_ACCESS_KEY}
+    secret-key: ${DO_SPACES_SECRET_KEY}
     region: ${DO_SPACES_REGION}
-    bucket-name: ${DO_SPACES_BUCKET:}
-    endpoint-url:
+    bucket-name: ${DO_SPACES_BUCKET_NAME}
+    endpoint-url: https://test-object-storage.sgp1.digitaloceanspaces.com
 
 # 日志配置
 logging:
